@@ -2,6 +2,7 @@
 const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const reviewTotalDisplay = document.querySelector('#reviews');
+const propertyContainer = document.querySelector('.properties');
 // Reviews
 const reviews = [
     {
@@ -86,3 +87,12 @@ const properties = [
         isAvailable: true
     }
 ];
+for (let i = 0; i < properties.length; i++) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = properties[i].title;
+    const image = document.createElement('img');
+    image.setAttribute('src', properties[i].image);
+    card.appendChild(image);
+    propertyContainer.appendChild(card);
+}
