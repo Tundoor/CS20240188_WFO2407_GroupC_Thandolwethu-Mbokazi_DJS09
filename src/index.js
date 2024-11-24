@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const propertyContainer = document.querySelector('.properties');
-const footer = document.querySelector('.footer');
-const utils_1 = require("./utils");
-const enums_1 = require("./enums");
+var propertyContainer = document.querySelector('.properties');
+var footer = document.querySelector('.footer');
+var utils_1 = require("./utils");
+var enums_1 = require("./enums");
 // Reviews
 // Using Any allows us to also account for the unkown property from perhaps an outside source
-const reviews = [
+var reviews = [
     {
         name: 'Sheia',
         stars: 5,
@@ -28,7 +28,7 @@ const reviews = [
     },
 ];
 //Adds naam of user on the welcome page
-const you = {
+var you = {
     firstname: 'Bobby',
     lastName: 'Brown',
     isReturning: true,
@@ -38,7 +38,7 @@ const you = {
 };
 //properties
 // Array of Properties
-const properties = [
+var properties = [
     // The colombian Property 
     {
         image: 'images/colombia-property.jpg',
@@ -57,7 +57,7 @@ const properties = [
     {
         image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
-        price: 30,
+        price: 34,
         location: {
             firstLine: 'no 23',
             city: 'Gdansk',
@@ -71,7 +71,7 @@ const properties = [
     {
         image: 'images/london-property.jpg',
         title: 'London Flat',
-        price: 45,
+        price: 23,
         location: {
             firstLine: 'flat 15',
             city: 'London',
@@ -87,16 +87,16 @@ const properties = [
 // This just shows uus whose reviewed what
 (0, utils_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 // this loops through our propertie array and creates the dv you see on the UI 
-for (let i = 0; i < properties.length; i++) {
-    const card = document.createElement('div');
+for (var i = 0; i < properties.length; i++) {
+    var card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = properties[i].title;
-    const image = document.createElement('img');
+    var image = document.createElement('img');
     image.setAttribute('src', properties[i].image);
     card.appendChild(image);
     (0, utils_1.showDetails)(you.permissions, card, properties[i].price);
     propertyContainer.appendChild(card);
 }
 // Used a tuple to ensure that our array is always in the same format
-let currentLocation = ['Durban', '13:35', 29];
+var currentLocation = ['Durban', '13:35', 29];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + "C";

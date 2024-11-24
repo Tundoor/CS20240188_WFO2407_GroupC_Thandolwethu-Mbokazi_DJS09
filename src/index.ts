@@ -1,16 +1,11 @@
-const returningUserDisplay = document.querySelector('#returning-user')
-const userNameDisplay = document.querySelector('#user')
-const reviewTotalDisplay = document.querySelector('#reviews')
+
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 
+import { showReviewTotal, populateUser, showDetails } from "./utils"
+import { Permission, LoyaltyUser } from "./enums"
+import { Country, Price } from "./types"
 // Reviews
-
-enum LoyaltyUser {
-    GOLD_USER = 'GOLD_USER',
-    SILVER_USER = 'SILVER_USER',
-    BRONZE_USER = 'BRONZE_USER',
-}
 
 // Using Any allows us to also account for the unkown property from perhaps an outside source
 const reviews: any[] = [
@@ -34,63 +29,29 @@ const reviews: any[] = [
         desccription: 'Great hosts, location was a bit further than said'
     },
 ]
-
-// This just shows uus whose reviewed what
-
-function showReviewTotal(value: number, reviewer: string, isLoyalty: LoyaltyUser) {
-    const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : ''
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
-}
-
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
-
-
 //Adds naam of user on the welcome page
 
-enum Permissions {
-    ADMIN = 'admin',
-    READ_ONLY = 'read-only'
-}
-
-const you: {
-    firstname: string;
-    lastName: string;
-    isReturning: true;
-    permissions: Permissions;
-    age: number;
-    stayedAt: string[];
-
-} = {
+const you = {
     firstname: 'Bobby',
     lastName: 'Brown',
     isReturning: true,
-    permissions: Permissions.ADMIN,
+    permissions: Permission.ADMIN,
     age: 23,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
-
-// This function is too make the user experience more personalized by displaying the users name on the website 
-function populateUser(isReturning: boolean, firstname: string) {
-    if (isReturning) {
-        returningUserDisplay.innerHTML = 'Back'
-    }
-    userNameDisplay.innerHTML = firstname
-}
-
-populateUser(you.isReturning, you.firstname)
-
 //properties
 
 // Array of Properties
+
 const properties: {
     image: string;
     title: string;
-    price: number;
+    price: Price;
     location: {
         firstLine: string;
         city: string;
         code: number;
-        country: string;
+        country: Country;
     };
     // Takes a number and a string as values
     contact: [number, string];
@@ -114,7 +75,7 @@ const properties: {
         {
             image: 'images/poland-property.jpg',
             title: 'Polish Cottage',
-            price: 34,
+            price: 30,
             location: {
                 firstLine: 'no 23',
                 city: 'Gdansk',
@@ -128,7 +89,7 @@ const properties: {
         {
             image: 'images/london-property.jpg',
             title: 'London Flat',
-            price: 23,
+            price: 45,
             location: {
                 firstLine: 'flat 15',
                 city: 'London',
@@ -140,6 +101,11 @@ const properties: {
         }
     ]
 
+// This function is too make the user experience more personalized by displaying the users name on the website 
+populateUser(you.isReturning, you.firstname)
+// This just shows uus whose reviewed what
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
+
 // this loops through our propertie array and creates the dv you see on the UI 
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
@@ -148,6 +114,7 @@ for (let i = 0; i < properties.length; i++) {
     const image = document.createElement('img')
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
+    showDetails(you.permissions, card, properties[i].price)
     propertyContainer.appendChild(card)
 }
 
