@@ -1,19 +1,16 @@
 {
-  "name": "project",
-  "devDependencies": {
-    "ts-loader": "*",
-    "typescript": "^5.7.2",
-    "webpack": "^5.96.1",
-    "webpack-cli": "^5.1.4"
-  },
-  "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w"
-  },
+  "name": "cs20240188_wfo2407_groupc_thandolwethu-mbokazi_djs09",
   "version": "1.0.0",
-  "description": "## Challenge Overview",
-  "main": "webpack.config.js",
+  "description": "Are you ready to get stuck into some Typescript? For this challenge, you are required to code along with the lecturer from this lesson:  Couch Surfing Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
 }
