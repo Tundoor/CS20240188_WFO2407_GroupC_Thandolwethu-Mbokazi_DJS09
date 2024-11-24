@@ -2,7 +2,7 @@
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 
-import { showReviewTotal, populateUser, showDetails } from "./utils"
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from "./utils"
 import { Permission, LoyaltyUser } from "./enums"
 import { Country, Price } from "./types"
 // Reviews
@@ -117,6 +117,28 @@ for (let i = 0; i < properties.length; i++) {
     showDetails(you.permissions, card, properties[i].price)
     propertyContainer.appendChild(card)
 }
+
+let count = 0
+function addReviews(array: {
+    name: string;
+    stars: number;
+    loyaltyUser: LoyaltyUser;
+    date: string;
+}[]): void {
+    if (!count) {
+        count++
+        const topTwo = getTopTwoReviews(array)
+        for (let i = 0; i < topTwo.length; i++) {
+            const card = document.createElement('div')
+            card.classList.add('review-card')
+            card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name
+            reviewContainer.appendChild(card)
+        }
+        container.removeChild(button)
+    }
+}
+
+button.addEventListener('click', () => addReviews(reviews))
 
 // Used a tuple to ensure that our array is always in the same format
 let currentLocation: [string, string, number] = ['Durban', '13:35', 29]

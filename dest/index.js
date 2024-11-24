@@ -97,6 +97,21 @@ for (let i = 0; i < properties.length; i++) {
     (0, utils_1.showDetails)(you.permissions, card, properties[i].price);
     propertyContainer.appendChild(card);
 }
+let count = 0;
+function addReviews(array) {
+    if (!count) {
+        count++;
+        const topTwo = (0, utils_1.getTopTwoReviews)(array);
+        for (let i = 0; i < topTwo.length; i++) {
+            const card = document.createElement('div');
+            card.classList.add('review-card');
+            card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name;
+            reviewContainer.appendChild(card);
+        }
+        container.removeChild(button);
+    }
+}
+button.addEventListener('click', () => addReviews(reviews));
 // Used a tuple to ensure that our array is always in the same format
 let currentLocation = ['Durban', '13:35', 29];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + "C";
