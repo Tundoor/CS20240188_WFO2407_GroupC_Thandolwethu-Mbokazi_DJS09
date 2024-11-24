@@ -31,4 +31,25 @@ function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
 
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
+//Adds naam of user on the welcome page
+const you: {
+    firstname: string,
+    lastName: string,
+    isReturning: true,
+    age: number
+} = {
+    firstname: 'Bobby',
+    lastName: 'Brown',
+    isReturning: true,
+    age: 23
+}
 
+
+function populateUser(isReturning: boolean, userName: string) {
+    if (isReturning) {
+        returningUserDisplay.innerHTML = 'Back'
+    }
+    userNameDisplay.innerHTML = userName
+}
+
+populateUser(you.isReturning, you.userName)

@@ -27,3 +27,17 @@ function showReviewTotal(value, reviewer, isLoyalty) {
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+//Adds naam of user on the welcome page
+const you = {
+    firstname: 'Bobby',
+    lastName: 'Brown',
+    isReturning: true,
+    age: 23
+};
+function populateUser(isReturning, userName) {
+    if (isReturning) {
+        returningUserDisplay.innerHTML = 'Back';
+    }
+    userNameDisplay.innerHTML = userName;
+}
+populateUser(you.isReturning, you.userName);
