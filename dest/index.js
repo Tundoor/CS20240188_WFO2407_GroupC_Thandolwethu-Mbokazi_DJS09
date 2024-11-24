@@ -2,6 +2,7 @@
 const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const reviewTotalDisplay = document.querySelector('#reviews');
+// Reviews
 const reviews = [
     {
         name: 'Sheia',
@@ -32,12 +33,56 @@ const you = {
     firstname: 'Bobby',
     lastName: 'Brown',
     isReturning: true,
-    age: 23
+    age: 23,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
-function populateUser(isReturning, userName) {
+function populateUser(isReturning, firstname) {
     if (isReturning) {
         returningUserDisplay.innerHTML = 'Back';
     }
-    userNameDisplay.innerHTML = userName;
+    userNameDisplay.innerHTML = firstname;
 }
-populateUser(you.isReturning, you.userName);
+populateUser(you.isReturning, you.firstname);
+//properties
+// Array of Properties
+const properties = [
+    {
+        image: 'images/colombia-property.jpg',
+        title: 'Colombian Shack',
+        price: 45,
+        location: {
+            firstLine: 'shack 37',
+            city: 'Bogota',
+            code: 45632,
+            country: 'Colombia'
+        },
+        contact: 'marywinkle@gmail.com',
+        isAvailable: true
+    },
+    {
+        image: 'images/poland-property.jpg',
+        title: 'Polish Cottage',
+        price: 34,
+        location: {
+            firstLine: 'no 23',
+            city: 'Gdansk',
+            code: 343903,
+            country: 'Poland'
+        },
+        contact: 'garydavis@hotmail.com',
+        isAvailable: false
+    },
+    {
+        image: 'images/london-property.jpg',
+        title: 'London Flat',
+        price: 23,
+        location: {
+            firstLine: 'flat 15',
+            city: 'London',
+            code: 35433,
+            country: 'United Kingdom',
+        },
+        contact: 'andyluger@aol.com',
+        isAvailable: true
+    }
+];
