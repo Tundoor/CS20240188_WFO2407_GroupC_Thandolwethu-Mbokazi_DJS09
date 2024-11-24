@@ -24,6 +24,7 @@ const reviews = [
         date: '27-03-2021'
     },
 ];
+// This just shows uus whose reviewed what
 function showReviewTotal(value, reviewer, isLoyalty) {
     const iconDisplay = isLoyalty ? '⭐' : '';
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
@@ -37,6 +38,7 @@ const you = {
     age: 23,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
+// This function is too make the user experience more personalized by displaying the users name on the website 
 function populateUser(isReturning, firstname) {
     if (isReturning) {
         returningUserDisplay.innerHTML = 'Back';
@@ -47,6 +49,7 @@ populateUser(you.isReturning, you.firstname);
 //properties
 // Array of Properties
 const properties = [
+    // The colombian Property 
     {
         image: 'images/colombia-property.jpg',
         title: 'Colombian Shack',
@@ -57,9 +60,10 @@ const properties = [
             code: 45632,
             country: 'Colombia'
         },
-        contact: 'marywinkle@gmail.com',
+        contact: [+1123495082908, 'marywinkle@gmail.com'], //tuple
         isAvailable: true
     },
+    // The Poland property
     {
         image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
@@ -70,9 +74,10 @@ const properties = [
             code: 343903,
             country: 'Poland'
         },
-        contact: 'garydavis@hotmail.com',
+        contact: [+1123495082908, 'garydavis@hotmail.com'],
         isAvailable: false
     },
+    // the london Property 
     {
         image: 'images/london-property.jpg',
         title: 'London Flat',
@@ -83,10 +88,11 @@ const properties = [
             code: 35433,
             country: 'United Kingdom',
         },
-        contact: 'andyluger@aol.com',
+        contact: [+1123495082908, 'andyluger@aol.com'],
         isAvailable: true
     }
 ];
+// this loops through our propertie array and creates the dv you see on the UI 
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div');
     card.classList.add('card');
