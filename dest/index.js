@@ -3,6 +3,7 @@ const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const reviewTotalDisplay = document.querySelector('#reviews');
 const propertyContainer = document.querySelector('.properties');
+const footer = document.querySelector('.footer');
 // Reviews
 const reviews = [
     {
@@ -102,3 +103,6 @@ for (let i = 0; i < properties.length; i++) {
     card.appendChild(image);
     propertyContainer.appendChild(card);
 }
+// Used a tuple to ensure that our array is always in the same format
+let currentLocation = ['Durban', '13:35', 29];
+footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + "C";
