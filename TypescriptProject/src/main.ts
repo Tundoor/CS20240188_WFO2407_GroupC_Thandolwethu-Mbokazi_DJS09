@@ -3,6 +3,12 @@ import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from './
 import { Permissions, LoyaltyUser } from './enums'
 import { Review, Property } from './interfaces'
 import MainProperty from './classes'
+import colombiaPropertyImage from './assets/colombia-property.jpg';
+import polishCottage from "./assets/poland-property.jpg";
+import lodonProperty from "./assets/london-property.jpg";
+import malaysianProperty from "./assets/malaysian-hotel.jpeg";
+import ItalianProperty from "./assets/italian-property.jpg";
+
 
 // DOM Elements
 const propertyContainer = document.querySelector('.properties')!;
@@ -44,7 +50,7 @@ const you = {
 // Array of Properties
 const properties: Property[] = [
   {
-    image: 'images/colombia-property.jpg',
+    image: colombiaPropertyImage,
     title: 'Colombian Shack',
     price: 45,
     location: {
@@ -57,7 +63,7 @@ const properties: Property[] = [
     isAvailable: true
   },
   {
-    image: 'images/poland-property.jpg',
+    image: polishCottage,
     title: 'Polish Cottage',
     price: 30,
     location: {
@@ -70,7 +76,7 @@ const properties: Property[] = [
     isAvailable: false
   },
   {
-    image: 'images/london-property.jpg',
+    image: lodonProperty,
     title: 'London Flat',
     price: 25,
     location: {
@@ -83,7 +89,7 @@ const properties: Property[] = [
     isAvailable: true
   },
   {
-    image: 'images/malaysian-hotel.jpeg',
+    image: malaysianProperty,
     title: 'Malia Hotel',
     price: 35,
     location: {
@@ -136,7 +142,7 @@ footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + current
 
 
 let yourMainProperty = new MainProperty(
-  'images/italian-property.jpg',
+  ItalianProperty,
   'Italian House',
   [{
     name: 'Olive',
